@@ -49,7 +49,7 @@ class AccountScreen extends StatelessWidget {
 
   Widget buildMainAccountWidget(context){
     return AnimatedPositioned(
-      duration: const  Duration(milliseconds: 800),
+      duration: const  Duration(milliseconds: 400),
       left: AppCubit.get(context).accountMainWidgetPosition,
       child: Container(
         padding: const EdgeInsets.all(10.0),
@@ -139,7 +139,7 @@ class AccountScreen extends StatelessWidget {
 
   Widget buildAddNewAccountWidget(context){
     return AnimatedPositioned(
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 400),
       right: AppCubit.get(context).addAccountWidgetPosition, //- MediaQuery.of(context).size.width ,
       child: Container(
         padding: const EdgeInsets.all(10.0),

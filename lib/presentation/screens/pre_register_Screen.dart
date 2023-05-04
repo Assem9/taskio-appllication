@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_helper/business_logic/app_cubit/app_cubit.dart';
 import 'package:task_helper/business_logic/app_cubit/app_states.dart';
 import 'package:task_helper/constants/strings.dart';
+import 'package:task_helper/presentation/widgets/app_logo_widget.dart';
 import 'package:task_helper/presentation/widgets/default_button.dart';
 import 'package:task_helper/presentation/widgets/textfield.dart';
 
@@ -17,7 +18,6 @@ class PreRegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     nameController.text = TaskCubit.get(context).nameController ;
     return Scaffold(
-      //backgroundColor: MyColors.black,
       body: BlocConsumer<TaskCubit,TaskStates>(
         listener: (context, state){
           if(state is AccountTasksLoaded){
@@ -45,16 +45,7 @@ class PreRegisterScreen extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          PhysicalModel(
-                            color: MyColors.darkColor,
-                            shape: BoxShape.circle,
-                            elevation: 4,
-                            shadowColor: AppCubit.get(context).isDark ? MyColors.lightColor : MyColors.black,
-                            child: const CircleAvatar(
-                              radius: 40,
-                              backgroundImage: AssetImage('assets/images/logo_splash.png'),
-                            ),
-                          ),
+                          AppLogoWidget(radius: 50),
                           const SizedBox(height: 20,),
                           Text(
                             'Welcome to :     ',
@@ -62,7 +53,7 @@ class PreRegisterScreen extends StatelessWidget {
                                 .copyWith(color: AppCubit.get(context).isDark ? MyColors.lightColor : MyColors.purple4),
                           ),
                           Text(
-                            'TASKIO',
+                            'TASKEU',
                             style: Theme.of(context).textTheme.displaySmall!.copyWith( fontSize: 40),
                           ),
                           const SizedBox(height: 15,),

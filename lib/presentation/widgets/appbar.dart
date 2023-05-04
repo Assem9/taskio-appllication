@@ -7,7 +7,7 @@ AppBar appBar(context) {
     title: Align(
         alignment:AlignmentDirectional.topEnd,
         child: Text(
-          'TASKIO !',
+          'TASKEU !',
           style: Theme.of(context).textTheme.displaySmall!.copyWith(color: Colors.white),
         )
     ),

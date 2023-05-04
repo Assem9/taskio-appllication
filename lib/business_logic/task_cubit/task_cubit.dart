@@ -306,7 +306,6 @@ class TaskCubit extends Cubit<TaskStates> {
     try{
       archivedTask.archived = true ;
       updateTaskInDbByItsType(archivedTask);
-
       updateHomeAllItems();
       account!.archive.add(archivedTask);
       emit(TaskArchived(archivedTask.title));
@@ -503,13 +502,5 @@ class TaskCubit extends Cubit<TaskStates> {
     emit(NoteDeleted());
   }
 
-
-
-  void test(){
-    allItems = account!.tasks + account!.plans;
-    print(allItems.length.toString());
-    allItems = allItems.where((item) => !item.archived).toList() ;
-    print(allItems.length.toString());
-  }
 
 }

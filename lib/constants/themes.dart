@@ -46,9 +46,9 @@ ThemeData lightTheme = ThemeData(
 
 ThemeData darkTheme = ThemeData(
     primarySwatch: Colors.deepOrange,
-  bottomSheetTheme: const BottomSheetThemeData(backgroundColor: MyColors.black2),
+    bottomSheetTheme: const BottomSheetThemeData(backgroundColor: MyColors.black2),
     iconTheme: const IconThemeData(color: MyColors.lightColor),
-  scaffoldBackgroundColor: MyColors.black2,
+    scaffoldBackgroundColor: MyColors.black2,
     appBarTheme: const AppBarTheme(
       // backwardsCompatibility: false, //to control status bar (Default =true)
       systemOverlayStyle:SystemUiOverlayStyle(
@@ -59,18 +59,18 @@ ThemeData darkTheme = ThemeData(
       backgroundColor: MyColors.darkColor,
       iconTheme: IconThemeData(color: MyColors.mainWhite),
     ),
-  textTheme: TextTheme(
-      displayMedium: displayMedium.copyWith(color: MyColors.mainWhite),
-      displaySmall: displaySmall.copyWith(color: MyColors.mainWhite),
-      bodyLarge: bodyLarge.copyWith(color: MyColors.mainWhite) ,
-      bodyMedium: bodyMedium.copyWith(color: MyColors.mainWhite),
-      titleLarge: titleLarge,
-      titleMedium: titleMedium,
-      titleSmall: GoogleFonts.aBeeZee().copyWith(color: MyColors.mainWhite),
-      bodySmall: GoogleFonts.aBeeZee().copyWith(color: MyColors.mainWhite)
-  ),
+    textTheme: TextTheme(
+        displayMedium: displayMedium.copyWith(color: MyColors.mainWhite),
+        displaySmall: displaySmall.copyWith(color: MyColors.mainWhite),
+        bodyLarge: bodyLarge.copyWith(color: MyColors.mainWhite) ,
+        bodyMedium: bodyMedium.copyWith(color: MyColors.mainWhite),
+        titleLarge: titleLarge,
+        titleMedium: titleMedium,
+        titleSmall: GoogleFonts.aBeeZee().copyWith(color: MyColors.mainWhite),
+        bodySmall: GoogleFonts.aBeeZee().copyWith(color: MyColors.mainWhite)
+    ),
 
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
       type: BottomNavigationBarType.fixed,
       selectedItemColor: MyColors.lightColor,
@@ -79,7 +79,6 @@ ThemeData darkTheme = ThemeData(
       backgroundColor: MyColors.black2
 
   ),
-
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: MyColors.lightColor
     )

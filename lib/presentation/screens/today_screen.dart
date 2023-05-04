@@ -6,8 +6,8 @@ import 'package:task_helper/constants/strings.dart';
 import '../../models/task.dart';
 import '../widgets/day_data_loader.dart';
 
-class TodayScreen extends StatelessWidget {
-  const TodayScreen({Key? key}) : super(key: key);
+class TasksByDayDateScreen extends StatelessWidget {
+  const TasksByDayDateScreen({Key? key}) : super(key: key);
 //Acc-20230314024926
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class TodayScreen extends StatelessWidget {
           const SizedBox(height: 25,),
           buildCalenderWidget(context),
           const SizedBox(height: 25,),
-          buildWeekDaysListView(dates: AppCubit.get(context).dates),
+          buildWeekDaysListView(context ,dates: AppCubit.get(context).dates),
           const SizedBox(height: 25,),
 
           Expanded(
@@ -63,7 +63,7 @@ class TodayScreen extends StatelessWidget {
               context: context,
               initialDate: DateTime.now(),
               firstDate: DateTime.now(),
-              lastDate: DateTime.now().add(Duration(days: 30)),
+              lastDate: DateTime.now().add(const Duration(days: 30)),
           ).then((value) => AppCubit.get(context).pickDayDate(context,day: value!)
           ),
           child: PhysicalModel(
@@ -71,18 +71,22 @@ class TodayScreen extends StatelessWidget {
             elevation: 6,
             shadowColor: AppCubit.get(context).isDark ? MyColors.lightColor : MyColors.black,
             color: AppCubit.get(context).isDark ? MyColors.lightColor : MyColors.purple3,
-            child: const Padding(
-              padding: EdgeInsets.all(12.0),
-              child: Icon(Icons.calendar_month,color: Colors.white,size: 20,),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Icon(
+                Icons.calendar_month,
+                color: Colors.white,
+                size: MediaQuery.of(context).size.width / 18,
+              ),
             ),),
         ),
       ],
     );
   }
 
-  Widget buildWeekDaysListView({required List<DateTime> dates}){
+  Widget buildWeekDaysListView(context,{required List<DateTime> dates}){
     return SizedBox(
-    height: 110,
+    height: MediaQuery.of(context).size.height / 7,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index)=> const SizedBox(width: 11,),
@@ -96,8 +100,8 @@ class TodayScreen extends StatelessWidget {
     return InkWell(
       onTap: ()=> AppCubit.get(context).pickDayDate(context,day: date),
       child: SizedBox(
-        height: 70,
-        width: 58,
+        height: MediaQuery.of(context).size.height / 7,
+        width: MediaQuery.of(context).size.width / 6,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: PhysicalModel(

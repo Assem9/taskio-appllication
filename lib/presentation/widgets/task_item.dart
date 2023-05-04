@@ -6,6 +6,7 @@ import '../../business_logic/task_cubit/task_cubit.dart';
 import '../../constants/my_colors.dart';
 import '../../constants/strings.dart';
 import '../../models/task.dart';
+import 'app_logo_widget.dart';
 import 'default_button.dart';
 
 class TaskWidget extends StatelessWidget {
@@ -30,15 +31,15 @@ class TaskWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return task.type != TaskType.isSUBTASK
-        ? Banner(
+    return task.type != TaskType.isSUBTASK ?
+    Banner(
       location: BannerLocation.topStart,
       message: getTaskState()['msg'],
       color: getTaskState()['color'],
       //textStyle: , subTask
       child: buildTaskData(context),
-    )
-        :  Stack(
+    ) :
+    Stack(
           children: [
             buildTaskData(context),
             smallBanner(
@@ -76,7 +77,7 @@ class TaskWidget extends StatelessWidget {
               task.title,
               style: task.type != TaskType.isSUBTASK
                   ? Theme.of(context).textTheme.titleMedium
-                  :Theme.of(context).textTheme.bodySmall ,
+                  :Theme.of(context).textTheme.bodySmall!.copyWith(color: MyColors.purple4) ,
             ),
           ),
         ),
@@ -86,14 +87,17 @@ class TaskWidget extends StatelessWidget {
 
   Widget onLongPressDialog(context){
     return AlertDialog(
-      icon: Container(
-          alignment: AlignmentDirectional.topEnd,
-          child: IconButton(
-            padding: const EdgeInsets.all(0),
-              onPressed: ()=>Navigator.pop(context),
-              icon: const Icon(Icons.close, size: 30,)
-          )
-      ),
+        icon: Row(
+          children: [
+            const AppLogoWidget(radius: 50,),
+            const Spacer(),
+            IconButton(
+                padding: const EdgeInsets.all(0),
+                onPressed: ()=>Navigator.pop(context),
+                icon: const Icon(Icons.close, size: 30,)
+            ),
+          ],
+        ),
         title: Text(
           task.title,
           style: Theme.of(context).textTheme.bodyLarge,

@@ -47,10 +47,12 @@ class TaskDetailsScreen extends StatelessWidget {
                       (context) => buildNotesWidgetBottomSheet(context)
               ),
             ),
+            const SizedBox(height: 10,),
+            buildLinksContainer(context),
             const SizedBox(height: 30,),
             buildButtonsRow(context),
             const SizedBox(height: 10,),
-            buildLinksContainer(context),
+            //buildLinksContainer(context),
 
           ],
         ),
@@ -77,9 +79,9 @@ class TaskDetailsScreen extends StatelessWidget {
         builder:(context, state){
           return Column(
             children: [
-              buildProgressWidget(context),
+              buildSubTasksGridView(context),
               const SizedBox(height: 10,),
-              buildSubTasksGridView(context)
+              buildProgressWidget(context),
             ],
           );
         }
@@ -111,9 +113,12 @@ class TaskDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget buildDateWidget(context,{required String title, required String value}){
+  Widget buildDateWidget(context,{
+    required String title,
+    required String value
+  }){
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
         color: AppCubit.get(context).isDark? MyColors.darkColor :MyColors.white3,
         borderRadius: BorderRadius.circular(10),
@@ -245,7 +250,10 @@ class TaskDetailsScreen extends StatelessWidget {
               child: Text(
                 maxLines : 2,
                 '${link['url']}',
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(decoration: TextDecoration.underline,),
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  decoration: TextDecoration.underline,
+                  color: MyColors.lightColor
+                ),
               )
           ),
         ],
@@ -269,16 +277,27 @@ class TaskDetailsScreen extends StatelessWidget {
   Widget buildTaskTextData(context){
     return Column(
       children: [
-        Text(
+        /*Text(
           task.subTasks.isEmpty ?" " :"A Plan For",
           style: Theme.of(context).textTheme.displayMedium,
-        ),
+        ),*/
+        const SizedBox(height: 5,),
         Text(
-          task.title,
-          style: Theme.of(context).textTheme.displaySmall,
+          '* ${task.title} *',
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
+            color: AppCubit.get(context).isDark ? MyColors.lightColor : MyColors.purple3
+          ),
         ),
-        //const SizedBox(height: 10,),
-        Text(task.description?? ' ',style: Theme.of(context).textTheme.bodyMedium,),
+        const SizedBox(height: 5,),
+        Align(
+            alignment: AlignmentDirectional.topStart ,
+            child: Text(
+              task.description?? ' ',
+              style: Theme.of(context).textTheme.bodyMedium,
+            )
+        ),
       ],
     );
   }
@@ -516,7 +535,7 @@ class TaskDetailsScreen extends StatelessWidget {
       children: [
         Text(
           'Plan\'s Progress ',
-          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
               color: AppCubit.get(context).isDark
                   ? Colors.white
                   : MyColors.purple2
@@ -524,11 +543,11 @@ class TaskDetailsScreen extends StatelessWidget {
         ),
         const SizedBox(height: 8,),
         SizedBox(
-          height: 34,
+          height: 20,
           child: Stack(
             children: [
               Container(
-                height: 34,
+                height: 20,
                 width: double.infinity,
                 alignment: AlignmentDirectional.center,
                 decoration: BoxDecoration(
@@ -545,7 +564,7 @@ class TaskDetailsScreen extends StatelessWidget {
                   child: Text(
                     task.progress != 0 ?
                     '${task.progress.toString().substring(0,3)} %' : '0 %',
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: Theme.of(context).textTheme.bodySmall,
                   )
               )
             ],
@@ -567,8 +586,7 @@ class TaskDetailsScreen extends StatelessWidget {
 
   Widget buildAnimatedPartListView(context){
     return SizedBox(
-      height: 30,
-      //width: double.infinity,
+      height: 16,
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,

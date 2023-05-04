@@ -153,6 +153,12 @@ class CreateTaskScreen extends StatelessWidget {
             prefixIcon: Icons.title
         ),
         DefaultTextField(
+            controller: description,
+            label: 'Description ',
+            type: TextInputType.text,
+            prefixIcon: Icons.description
+        ),
+        DefaultTextField(
           controller: startDate,
           label: 'Set Start Date',
           type: TextInputType.none,
@@ -167,14 +173,8 @@ class CreateTaskScreen extends StatelessWidget {
           ),
         ),
         DefaultTextField(
-            controller: description,
-            label: 'Description *optional*',
-            type: TextInputType.text,
-            prefixIcon: Icons.description
-        ),
-        DefaultTextField(
           controller: deadLine,
-          label: 'Set Deadline Date *optional*',
+          label: 'Set Deadline Date ',
           type: TextInputType.none,
           prefixIcon: Icons.date_range,
           onTap: ()=> DatePicker.showDateTimePicker(

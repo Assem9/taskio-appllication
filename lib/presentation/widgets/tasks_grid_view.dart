@@ -14,8 +14,8 @@ class TasksGridView extends StatelessWidget {
     return BlocBuilder<TaskCubit,TaskStates>(
       builder: (context ,state){
         return GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: MediaQuery.of(context).size.width < 400 ? 2 : 3,
             childAspectRatio:1,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,

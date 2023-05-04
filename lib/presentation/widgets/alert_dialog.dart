@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task_helper/business_logic/app_cubit/app_cubit.dart';
 import 'package:task_helper/presentation/widgets/default_button.dart';
 import '../../constants/my_colors.dart';
+import 'app_logo_widget.dart';
 
 class DefaultDialog extends StatelessWidget {
   const DefaultDialog({
@@ -20,9 +21,9 @@ class DefaultDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-        title: Text(
-          title,
-          style: Theme.of(context).textTheme.bodyLarge,
+        icon: const Align(
+            alignment: AlignmentDirectional.topStart,
+            child: AppLogoWidget(radius: 50,)
         ),
         content: contentWidget ??
             Text(

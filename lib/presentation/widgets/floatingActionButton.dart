@@ -48,7 +48,7 @@ class _MyFloatingButtonState extends State<MyFloatingButton> {
     return Container(
       padding: const EdgeInsets.symmetric( horizontal: 20),
       width: double.infinity,
-      height: 200,
+      height: MediaQuery.of(context).size.height / 4,
       decoration: BoxDecoration(
         color: AppCubit.get(context).isDark ? MyColors.black2 :MyColors.white3,
       ),
@@ -58,9 +58,9 @@ class _MyFloatingButtonState extends State<MyFloatingButton> {
          // const BottomSheetTopWidget(),
           Text('Add?',style: Theme.of(context).textTheme.displaySmall,),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               buildAddPlanWidget(context),
-              const Spacer(),
               buildAddTaskWidget(context)
             ],
           ),
@@ -70,11 +70,12 @@ class _MyFloatingButtonState extends State<MyFloatingButton> {
   }
 
   Widget buildAddPlanWidget(context){
+    double widgetDimension = MediaQuery.of(context).size.width / 3;
     return InkWell(
       onTap:()=> Navigator.pushNamed(context, createTask,arguments: TaskType.isPLAN),
       child: SizedBox(
-        height: 120,
-        width: MediaQuery.of(context).size.width / 3,
+        height: widgetDimension,
+        width: widgetDimension,
         child: Stack(
           children: [
             PhysicalModel(
@@ -90,10 +91,10 @@ class _MyFloatingButtonState extends State<MyFloatingButton> {
                 ),
               ),
             ),
-            buildSubTask(top: 0, right: 20, title: 'task1', angle: pi/4),
-            buildSubTask(top: 10, right: 15, title: 'task2', angle: pi/2),
-            buildSubTask(top: 20, right: 0, title: 'task3', angle: -pi/4),
-            buildSubTask(top: 40, right: 0, title: 'task4', angle:  pi/3),
+            buildSubTask(top: 0, right: 20, title: 'task1', angle: pi/4, widgetDimension: widgetDimension,),
+            buildSubTask(top: 10, right: 15, title: 'task2', angle: pi/2, widgetDimension: widgetDimension,),
+            buildSubTask(top: 20, right: 0, title: 'task3', angle: -pi/4, widgetDimension: widgetDimension,),
+            buildSubTask(top: 40, right: 0, title: 'task4', angle:  pi/3, widgetDimension: widgetDimension,),
           ],
         ),
       ),
@@ -105,6 +106,7 @@ class _MyFloatingButtonState extends State<MyFloatingButton> {
     required double right ,
     required String title ,
     required double angle ,
+    required double widgetDimension,
 }){
     return Positioned(
         top: top,
@@ -112,8 +114,8 @@ class _MyFloatingButtonState extends State<MyFloatingButton> {
         child: Transform.rotate(
           angle: angle,
           child: SizedBox(
-            height: 30,
-            width: 33,
+            height: widgetDimension / 4 ,
+            width: widgetDimension / 4 ,
             child: PhysicalModel(
               //borderRadius:  BorderRadius.circular(5),
               color: AppCubit.get(context).isDark ? MyColors.black : MyColors.purple1,
@@ -135,7 +137,7 @@ class _MyFloatingButtonState extends State<MyFloatingButton> {
     return InkWell(
       onTap: ()=> Navigator.pushNamed(context, createTask,arguments: TaskType.isTASK),
       child: SizedBox(
-        height: 120,
+        height: MediaQuery.of(context).size.width / 3,
         width: MediaQuery.of(context).size.width / 3,
         child: PhysicalModel(
           borderRadius:  BorderRadius.circular(5),

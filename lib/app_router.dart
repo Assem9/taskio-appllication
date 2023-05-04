@@ -27,8 +27,6 @@ class AppRouter{
             builder: (_) =>  PreRegisterScreen(),
           );
         }
-
-
       case accountScreen:
         return MaterialPageRoute(
           builder: (_) => AccountScreen(),

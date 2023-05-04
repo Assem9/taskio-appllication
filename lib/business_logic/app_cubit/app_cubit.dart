@@ -37,7 +37,7 @@ class AppCubit extends Cubit<AppStates> {
   }
 
   int botCurrentIndex = 1 ;
-  List<Widget> screens = [ const TodayScreen(),const HomeScreen(),const ArchivedScreen()];
+  List<Widget> screens = [ const TasksByDayDateScreen(),const HomeScreen(),const ArchivedScreen()];
   void changeBotNavBar(int index) {
     botCurrentIndex = index ;
     emit(ChangeBottomNavigationBar());
@@ -125,7 +125,7 @@ class AppCubit extends Cubit<AppStates> {
     emit(Loading());
     pickedDayTasks = [];
     Account account = TaskCubit.get(context).account! ;
-    List<Task> all =  account.tasks + account.plans + account.archive ;
+    List<Task> all =  account.tasks + account.plans ;
     for(Task item in all){
       var itemDate = DateTime(item.startDate.year,item.startDate.month,item.startDate.day);
       if(itemDate == pickedDay){

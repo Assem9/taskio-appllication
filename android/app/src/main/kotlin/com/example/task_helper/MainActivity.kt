@@ -1,4 +1,4 @@
-package com.example.task_helper
+package com.assemDev.Taskeu
 
 import io.flutter.embedding.android.FlutterActivity
 

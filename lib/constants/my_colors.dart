@@ -15,17 +15,6 @@ class MyColors{
   static const Color purple3 = Color(0xff393053);
   static const Color purple4 = Color(0xff18122B);
 
-
-  static const List<Color> progressColors = [
-    Color(0xffF7FD04),
-    Color(0xffF9B208),
-    Color(0xffF98404),
-    Color(0xffFC5404),
-    Color(0xffF90716),
-
-
-  ];
-
   static const List<Color> taskColors = [
     Color(0xff790252),
     Color(0xffF8EDE3),
@@ -37,15 +26,12 @@ class MyColors{
     Color(0xffFCE38A),
     Color(0xffFFAB4C),
     Color(0xff22577A),
-    Color(0xff505BDA),
-    Color(0xff5E63B6), //F5C7F7
+    Color(0xff505BDA),    Color(0xff5E63B6), //F5C7F7
     Color(0xffF5C7F7),
 
   ];
   static const List<int> hiveColors = [
-    //0xff790252,
     0xffF8EDE3,
-   // 0xff4C0033,
     0xffFB2576,
     0xffF9F6F7,
     0xffD3756B,

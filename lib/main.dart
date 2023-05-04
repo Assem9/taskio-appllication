@@ -1,4 +1,3 @@
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,10 +13,6 @@ import 'constants/themes.dart';
 import 'models/task.dart';
 import 'models/task_type_enum.dart';
 import 'models/user.dart';
-// Notify.notificaionInitialize();
-// await AndroidAlarmManager.initialize();
-//Notify.setup();
-//flutter packages pub run build_runner build
 
 void hiveRegisters(){
   Hive.registerAdapter(AccountAdapter());
@@ -25,15 +20,11 @@ void hiveRegisters(){
   Hive.registerAdapter(TaskTypeAdapter());
 }
 
-void setCaches(){
-
-}
-
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   //FlutterNativeSplash.preserve(widgetsBinding: WidgetsFlutterBinding.ensureInitialized());
   //FlutterNativeSplash.remove();
-  CacheHelper.init();
+  await CacheHelper.init();
   hiveRegisters();
   await getApplicationDocumentsDirectory()
       .then((value) => directoryPath = value.path);
@@ -63,12 +54,12 @@ class MyApp extends StatelessWidget {
         builder: (context, state){
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'TASK',
+            title: 'TASKEU',
             theme: lightTheme,
             darkTheme: darkTheme,
             themeMode: AppCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
             onGenerateRoute: appRouter.generateRoute,
-            //home: const LayoutScreen(),
+            //home: const TestScreen(),
           );
         },
 
