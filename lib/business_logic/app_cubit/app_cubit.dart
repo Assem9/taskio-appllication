@@ -24,16 +24,9 @@ class AppCubit extends Cubit<AppStates> {
       isDark = fromShared ;
     }else{
       isDark = !isDark;
-      try{
-        CacheHelper.saveData(key: 'isDark', value: isDark) ;
-        emit(ThemeChanged());
-      }catch(e){
-        debugPrint('$e');
-      }
-
+      CacheHelper.saveData(key: 'isDark', value: isDark) ;
+      emit(ThemeChanged());
     }
-
-
   }
 
   int botCurrentIndex = 1 ;

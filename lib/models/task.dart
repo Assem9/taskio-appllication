@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:task_helper/models/task_type_enum.dart';
 part 'task.g.dart';
-//flutter packages pub run
+
 @HiveType(typeId: 1)
 class Task{
   @HiveField(0)
