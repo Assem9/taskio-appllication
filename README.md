@@ -14,3 +14,10 @@ flutter pub get
 ```
 flutter run
 ```
+## Screenshots
+
+![Home_screen_gif 1](screenshots/Play_Store1024X500.PNG)
+
+![Home_screen_gif 1](screenshots/Upwork_main.PNG)
+
+![Home_screen_gif 1](screenshots/mobile.PNG)
