@@ -1,16 +1,16 @@
-# task_helper
+# Taskeu
 
-A new Flutter project.
+Taskeu is a powerful and easy-to-use task manager that helps you stay organized and productive. With Taskeu, you can quickly and easily create tasks, set due dates and and track your progress as you work towards your goals.
 
-## Getting Started
+## Installation
+To get started with this project, you will need to follow these steps:
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Setup Flutter and Dart on your machine by following the instructions in the official documentation: https://flutter.dev/docs/get-started/install ↗
+2. Run the following command to install the required packages:
+ ```
+flutter pub get
+```
+3. Run the following command to build and launch the app:
+```
+flutter run
+```
