@@ -20,4 +20,3 @@ flutter run
 
 ![Home_screen_gif 1](screenshots/Upwork_main.png)
 
-![Home_screen_gif 1](screenshots/mobile.png)
